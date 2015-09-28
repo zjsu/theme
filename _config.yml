@@ -1,7 +1,7 @@
 title: Jekyll theme
 baseurl: '/theme'
 
-disqus_short_name: disqus_name
+disqus_short_name: zjsutheme
 
 defaults:
   -

@@ -1,5 +1,4 @@
 ---
-comments: false
 ---
 
 # {{ site.title }}
