@@ -1,12 +1,11 @@
 language: ruby
 rvm:
 - 2.1.1
-script: jekyll build && htmlproof ./_site
+script: jekyll build --destination _site/theme && htmlproof ./_site
 
 branches:
   only:
   - master
-  - gh-pages
 
 env:
   global:
