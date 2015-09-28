@@ -1,14 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" class="han-init">
 {% include head.html %}
 <body>
   <header class="header" role="banner">{% include header.html %}</header>
   <div class="header-shadow"></div>
-  {% if page.banner %}
-  <div class="banner" style="background-image: url('{{ page.banner }}')"></div>
-  {% endif %}
   <div id="main">
     {{ content }}
-  </div> <!-- #main -->
-  <footer id="footer" role="contentinfo">{% include footer.html %}</footer>
+  </div>
   {% include disqus.html %}
+  <script src="{{ site.baseurl }}/public/han.js"></script>
 </body>
 </html>
