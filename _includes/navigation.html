@@ -1,3 +1,5 @@
 <ul role="main-navigation" class="menu">
-  <li><a href="https://github.com/ds-class">GitHub</a></li>
+{% for nav in site.data.nav %}
+  <li><a href="{{ nav.url }}">{{ nav.name }}</a></li>
+{% endfor %}
 </ul>
