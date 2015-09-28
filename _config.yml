@@ -1,5 +1,5 @@
-title: INSERT TITLE
-baseurl: ''
+title: Jekyll theme
+baseurl: '/theme'
 
 disqus_short_name: disqus_name
 
