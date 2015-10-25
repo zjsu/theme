@@ -12,6 +12,14 @@
 > this is a
 > block quote
 
+{% highlight c %}
+int main()
+{
+    printf("Hello world!\n");
+    return 0;
+}
+{% endhighlight %}
+
 ## 网络资源
 
 - [Linux Kernel 编码规范](https://github.com/torvalds/linux/blob/master/Documentation/zh_CN/CodingStyle)
