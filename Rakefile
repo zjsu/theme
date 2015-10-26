@@ -52,6 +52,16 @@ def precheck(dir)
   end
 end
 
+def copy_site(dest)
+  unless File.exist("#{dest}/index.md")
+    cp 'site/index.md', dest
+  end
+
+  unless File.exist("#{dest}/_data")
+    cp_r "site/_data", dest
+  end
+end
+
 def deploy(options)
   Dir.mktmpdir do |dir|
     cp_r 'template/.', dir
@@ -69,6 +79,7 @@ def deploy(options)
       system("git checkout -B #{options[:branch]}")
       rm_rf entries
       cp_r "#{dir}/.", '.'
+      copy_site(options[:dest])
       system("git add . && git commit -am 'Theme update'")
     end
   end
