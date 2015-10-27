@@ -53,11 +53,11 @@ def precheck(dir)
 end
 
 def copy_site(dest)
-  unless File.exist("#{dest}/index.md")
+  unless File.exist?("#{dest}/index.md")
     cp 'site/index.md', dest
   end
 
-  unless File.exist("#{dest}/_data")
+  unless File.exist?("#{dest}/_data")
     cp_r "site/_data", dest
   end
 end
@@ -76,7 +76,9 @@ def deploy(options)
 
     entries = Dir.entries(dir).reject{|f| f == '.' || f == '..' }
     Dir.chdir(options[:dest]) do
-      system("git checkout -B #{options[:branch]}")
+      unless system("git checkout #{options[:branch]}")
+        abort "No branch #{options[:branch]}"
+      end
       rm_rf entries
       cp_r "#{dir}/.", '.'
       copy_site(options[:dest])
