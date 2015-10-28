@@ -1,10 +1,5 @@
-## Jekyll Theme
+## ZJSU Theme
 
-[![Build Status](https://travis-ci.org/zjsu/theme.svg?branch=master)](https://travis-ci.org/zjsu/theme)
+[![Build Status](https://travis-ci.org/zjsu/theme.svg?branch=gh-pages)](https://travis-ci.org/zjsu/theme)
 
-- [Jekyll](http://jekyllrb.com)
-- [漢字標準格式](https://css.hanzi.co)
-
-### 使用说明
-
-将相关文件拷贝到你的Jekyll目录。
+This site is powered by [Jekyll](http://jekyllrb.com) and hosted on [GitHub](https://github.com).
