@@ -16,8 +16,8 @@ def ask_options
     branch: 'gh-pages',
     repo: 'zjsu/theme',
     title: 'ZJSU Theme',
-    baseurl: '',
-    disqus: '',
+    baseurl: '/theme',
+    disqus: 'zjsutheme',
   }
 
   options[:dest] = get_option('Enter project folder', options[:dest])
