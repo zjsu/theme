@@ -65,7 +65,7 @@ end
 def deploy(options)
   Dir.mktmpdir do |dir|
     cp_r 'template/.', dir
-    Dir.glob("#{dir}/**/*.erb") do |f|
+    Dir.glob("#{dir}/**/*.erb", File::FNM_DOTMATCH) do |f|
       out = File.join(File.dirname(f), File.basename(f, '.erb'))
       erb = ERB.new(File.read(f))
       File.open(out, 'w+') do |f|
