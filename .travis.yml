@@ -3,7 +3,7 @@ language: ruby
 cache: bundler
 rvm:
 - 2.1
-script: bundle exec jekyll build _site/theme && bundle exec htmlproof ./_site
+script: bundle exec jekyll build --destination _site/theme && bundle exec htmlproof ./_site
 
 branches:
   only:
