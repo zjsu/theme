@@ -52,17 +52,18 @@ def precheck(dir)
   end
 end
 
-def copy_site(dest)
+def copy_site(src, dest)
   unless File.exist?("#{dest}/index.md")
-    cp 'site/index.md', dest
+    cp "#{src}/site/index.md", dest
   end
 
   unless File.exist?("#{dest}/_data")
-    cp_r "site/_data", dest
+    cp_r "#{src}/site/_data", dest
   end
 end
 
 def deploy(options)
+  pwd = Dir.pwd  
   Dir.mktmpdir do |dir|
     cp_r 'template/.', dir
     Dir.glob("#{dir}/**/*.erb", File::FNM_DOTMATCH) do |f|
@@ -74,14 +75,14 @@ def deploy(options)
       rm_f f
     end
 
-    entries = Dir.entries(dir).reject{|f| f == '.' || f == '..' }
     Dir.chdir(options[:dest]) do
       unless system("git checkout #{options[:branch]}")
         abort "No branch #{options[:branch]}"
       end
+      entries = Dir.entries(dir).reject{|f| f == '.' || f == '..' }
       rm_rf entries
       cp_r "#{dir}/.", '.'
-      copy_site(options[:dest])
+      copy_site(pwd, options[:dest])
       system("git add . && git commit -am 'Theme update'")
     end
   end
